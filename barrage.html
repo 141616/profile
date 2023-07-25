@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>弹幕</title>
+    <style>
+      .app {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 0 20px;
+      }
+
+      #barrage-container {
+        position: relative;
+        flex: auto;
+        overflow: hidden;
+        border: 1px solid #ccc;
+        margin: 20px 0;
+      }
+      #barrage-opotions {
+        height: 180px;
+        text-align: center;
+      }
+
+      #barrage-input {
+        height: 38px;
+        width: 300px;
+        padding: 0 16px;
+      }
+
+      .buttons {
+        margin-top: 20px;
+      }
+
+      .buttons button {
+        width: 96px;
+        height: 40px;
+        border-radius: 8px;
+        border-width: 1px;
+        cursor: pointer;
+        background: #fff;
+        font-size: 14px;
+      }
+
+      .buttons button:active {
+        background: #eee;
+      }
+
+      #send-barrage {
+        color: orange;
+      }
+
+      .barrage {
+        position: absolute;
+        white-space: nowrap;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <div class="app">
+      <div id="barrage-container"></div>
+      <div id="barrage-opotions">
+        <div>
+          <input id="barrage-input" type="text" />
+        </div>
+        <div class="buttons">
+          <button id="send-barrage">发射/Enter</button>
+          <button id="clear-barrages">清屏</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="barrage.js"></script>
+  </body>
+</html>
