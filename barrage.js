@@ -72,7 +72,7 @@ function generateBarrage(text) {
   var barrage = document.createElement("div");
 
   // 设置随机颜色
-  var color = randomColor();
+  var color = getRandomColor();
   // 大小12-36
   var size = Math.floor(Math.random() * 25) + 12;
 
@@ -87,12 +87,18 @@ function generateBarrage(text) {
   return barrage;
 }
 
-// 获取随机颜色
-function randomColor() {
-  var letters = "0123456789ABCDEF";
-  var color = "#";
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
+function getRandomColor() {
+  // 生成随机色相 (0-360)
+  const hue = Math.floor(Math.random() * 360);
+
+  // 设置饱和度 (50-100)
+  const saturation = Math.floor(Math.random() * 51) + 50;
+
+  // 设置亮度 (20-80)，确保颜色不太暗或太亮
+  const lightness = Math.floor(Math.random() * 61) + 20;
+
+  // 将 HSL 值转换为 CSS 颜色字符串
+  const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+
   return color;
 }
