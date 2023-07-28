@@ -71,9 +71,10 @@ function clearBarrages() {
 function generateBarrage(text) {
   var barrage = document.createElement("div");
 
-  // 设置随机颜色、大小和速度
+  // 设置随机颜色
   var color = randomColor();
-  var size = Math.random() * 20 + 16;
+  // 大小12-36
+  var size = Math.floor(Math.random() * 25) + 12;
 
   // 设置弹幕样式
   barrage.style.color = color;
