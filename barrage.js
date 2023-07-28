@@ -30,9 +30,9 @@ function sendBarrage() {
  * @param {*} text 弹幕文本内容
  */
 function addBarrage(text) {
-  var barrage = generateBarrage(text);
-  // 添加弹幕至容器
   var container = document.getElementById("barrage-container");
+  var barrage = generateBarrage(text, container);
+  // 添加弹幕至容器
   container.appendChild(barrage);
   // 设置随机速度
   var speed = Math.random() * 4 + 1;
@@ -68,19 +68,21 @@ function clearBarrages() {
   container.innerHTML = "";
 }
 
-function generateBarrage(text) {
+function generateBarrage(text, container) {
   var barrage = document.createElement("div");
 
   // 设置随机颜色
   var color = getRandomColor();
   // 大小12-36
   var size = Math.floor(Math.random() * 25) + 12;
+  // 高度
+  var height = container.clientHeight || 200;
 
   // 设置弹幕样式
   barrage.style.color = color;
   barrage.style.fontSize = size + "px";
   barrage.style.left = "100%";
-  barrage.style.top = Math.random() * 360 + "px";
+  barrage.style.top = Math.random() * height + "px";
   barrage.className = "barrage";
   barrage.textContent = text;
 
